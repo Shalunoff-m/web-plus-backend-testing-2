@@ -25,7 +25,15 @@ describe('PostsService', () => {
     });
 
     it('should return correct posts for skip and limit options', () => {
-      // реализуйте тест-кейс
+      const posts = postsService.findMany({ skip: 1, limit: 2 });
+
+      expect(posts).toHaveLength(2);
+      expect(posts).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ text: 'Post 2', id: '2' }),
+          expect.objectContaining({ text: 'Post 3', id: '3' }),
+        ])
+      );
     });
 
     // реализуйте недостающие тест-кейсы
