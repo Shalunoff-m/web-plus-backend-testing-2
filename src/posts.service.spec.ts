@@ -53,6 +53,14 @@ describe('PostsService', () => {
       );
     });
 
+    it('should throw an error if attempting to update a post that does not exist', () => {
+      expect(() => {
+        postsService.update('nonexistent', {
+          text: 'This post does not exist',
+        });
+      }).toThrow('Пост не найден');
+    });
+
     // реализуйте недостающие тест-кейсы
   });
 });
