@@ -44,6 +44,15 @@ describe('PostsService', () => {
       expect(postsService.find(postToDelete.id)).toBeUndefined();
     });
 
+    it('should update the text of a post', () => {
+      const postToUpdate = postsService.create({ text: 'Update this post' });
+      postsService.update(postToUpdate.id, { text: 'Updated post' });
+      const updatedPost = postsService.find(postToUpdate.id);
+      expect(updatedPost).toEqual(
+        expect.objectContaining({ text: 'Updated post' })
+      );
+    });
+
     // реализуйте недостающие тест-кейсы
   });
 });
