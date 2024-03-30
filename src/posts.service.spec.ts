@@ -9,10 +9,10 @@ describe('PostsService', () => {
 
   describe('.findMany', () => {
     const posts = [
-      {text: 'Post 1'},
-      {text: 'Post 2'},
-      {text: 'Post 3'},
-      {text: 'Post 4'},
+      { text: 'Post 1' },
+      { text: 'Post 2' },
+      { text: 'Post 3' },
+      { text: 'Post 4' },
     ];
 
     beforeEach(() => {
@@ -20,7 +20,8 @@ describe('PostsService', () => {
     });
 
     it('should return all posts if called without options', () => {
-      // реализуйте тест-кейс
+      const posts = postsService.findMany();
+      expect(posts.length).toBe(4);
     });
 
     it('should return correct posts for skip and limit options', () => {
