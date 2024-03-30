@@ -36,6 +36,14 @@ describe('PostsService', () => {
       );
     });
 
+    it('should delete a post by id', () => {
+      const postToDelete = postsService.create({ text: 'Delete this post' });
+      expect(postsService.findMany().length).toBe(5); // Assuming 4 posts were initially created in beforeEach
+      postsService.delete(postToDelete.id);
+      expect(postsService.findMany().length).toBe(4);
+      expect(postsService.find(postToDelete.id)).toBeUndefined();
+    });
+
     // реализуйте недостающие тест-кейсы
   });
 });
